@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const primaryServerUrl = "https://back-app-disp.onrender.com"; 
-const replicaServerUrl = "https://replica-back-app-disp.onrender.com"; 
+const primaryServerUrl = import.meta.env.VITE_PRIMARY_SERVER_URL;
+const replicaServerUrl = import.meta.env.VITE_REPLICA_SERVER_URL;
+
 
 const Location = () => {
   const [location, setLocation] = useState(null);
@@ -10,7 +11,7 @@ const Location = () => {
   const [latency, setLatency] = useState(null);
   const [latencies, setLatencies] = useState([]);
   const [isRunning, setIsRunning] = useState(true);
-  const [serverUrl, setServerUrl] = useState("http://localhost:3000");
+  const [serverUrl, setServerUrl] = useState(primaryServerUrl);
   const [pingResults, setPingResults] = useState([]); // Guarda el estado de los pings
 
   const primaryServerUrl = import.meta.env.VITE_PRIMARY_SERVER_URL;
