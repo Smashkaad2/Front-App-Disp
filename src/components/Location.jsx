@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const primaryServerUrl = import.meta.env.VITE_PRIMARY_SERVER_URL;
-const replicaServerUrl = import.meta.env.VITE_REPLICA_SERVER_URL;
-
-
 const Location = () => {
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
   const [latency, setLatency] = useState(null);
   const [latencies, setLatencies] = useState([]);
   const [isRunning, setIsRunning] = useState(true);
-  const [serverUrl, setServerUrl] = useState(primaryServerUrl);
+  const [serverUrl, setServerUrl] = useState("http://localhost:3000");
   const [pingResults, setPingResults] = useState([]); // Guarda el estado de los pings
 
-  const primaryServerUrl = import.meta.env.VITE_PRIMARY_SERVER_URL;
-  const replicaServerUrl = import.meta.env.VITE_REPLICA_SERVER_URL;
-  
+  const primaryServerUrl = "http://localhost:3000";
+  const replicaServerUrl = "http://localhost:3001";
 
   // Función para hacer un ping al servidor y medir latencia
   const pingServer = async (url) => {
