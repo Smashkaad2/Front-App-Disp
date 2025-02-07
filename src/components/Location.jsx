@@ -8,12 +8,11 @@ const Location = () => {
   const [latencies, setLatencies] = useState([]);
   const [isRunning, setIsRunning] = useState(true);
   const [serverUrl, setServerUrl] = useState("http://localhost:3000");
-  const [pingResults, setPingResults] = useState([]); // Guarda el estado de los pings
-
+  const [pingResults, setPingResults] = useState([]); 
   const primaryServerUrl = "http://localhost:3000";
   const replicaServerUrl = "http://localhost:3001";
 
-  // Función para hacer un ping al servidor y medir latencia
+ 
   const pingServer = async (url) => {
     return new Promise((resolve) => {
       const startTime = Date.now();
@@ -144,9 +143,9 @@ const Location = () => {
         <p> Cargando ubicación...</p>
       )}
 
-      {latency !== null && <p>⏱️ Latencia actual: {latency} ms</p>}
+      {latency !== null && <p> Latencia actual: {latency} ms</p>}
 
-      {!isRunning && <h3>🕒 Latencias registradas:</h3>}
+      {!isRunning && <h3> Latencias registradas:</h3>}
     </div>
   );
 };
